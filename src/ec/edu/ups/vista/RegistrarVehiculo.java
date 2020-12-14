@@ -191,6 +191,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
                     txtCedula.setEditable(false);
                     JOptionPane.showMessageDialog(null, "BIENVENIDO " + cliente.getNombre().trim() + " INGRESE LOS DATOS DE SU NUEVO AUTO");
                 } else {
+                    txtCedula.setText("");
                     JOptionPane.showMessageDialog(null, "CLIENTE NO EXSISTE");
                 }
 
@@ -250,6 +251,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         limpiar();
+        txtCedula.setEditable(true);
         inicio.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
