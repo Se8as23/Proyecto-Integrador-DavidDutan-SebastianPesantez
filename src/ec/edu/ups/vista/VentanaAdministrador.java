@@ -38,8 +38,8 @@ public class VentanaAdministrador extends javax.swing.JInternalFrame {
         modelo.setRowCount(0);
         if (tickets==null){
             System.out.println("lista vacia");
-        }
-        for (Ticket ticket : tickets) {
+        }else{
+         for (Ticket ticket : tickets) {
             Object[] fila = new Object[6];
             fila[0] = ticket.getNumero();
             fila[1] = ticket.getFechaDeIngreso().toString();
@@ -53,7 +53,9 @@ public class VentanaAdministrador extends javax.swing.JInternalFrame {
             fila[5] = ticket.getPuesto();
             modelo.addRow(fila);
         }
-        tablaDatos.setModel(modelo);
+        tablaDatos.setModel(modelo);   
+        }
+        
     }
 
     @SuppressWarnings("unchecked")

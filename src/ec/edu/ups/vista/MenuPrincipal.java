@@ -19,7 +19,8 @@ import javax.swing.JMenuItem;
  * @author Dutan2000
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-        //vistas
+    //vistas
+
     private IniciarSession iniciarSession;
     private Inicio inicio;
     private RegistrarAdministrador registrarAdministrador;
@@ -28,7 +29,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private VentanaAdministrador ventanaAdministrador;
     private RegistrarVehiculo registrarVehiculo;
     private Tipo tipoVentana;
-    
+
     //controladores
     private ControladorCliente controladorC;
     private ControladorParqueadero controladorP;
@@ -36,34 +37,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private ControladorUsuario controladorU;
     private ControladorVehiculo controladorV;
     private ControladorRegex controladorR;
-    
-    private String tipo="";
-    
+
+    //private String tipo="";
     public MenuPrincipal() {
         initComponents();
-                controladorR=new ControladorRegex();
-        controladorC=new ControladorCliente();
-        controladorP=new ControladorParqueadero();
-        controladorV=new ControladorVehiculo(controladorC);
-        controladorT=new ControladorTicket(controladorV, controladorP);
-        controladorU=new ControladorUsuario();
-        
-        iniciarSession=new IniciarSession(controladorU,this);
-        registrarCliente=new RegistrarCliente(controladorR, controladorC, inicio);
-        registrarAdministrador=new RegistrarAdministrador(controladorU,controladorR);
-        reservarParqueadero=new ReservarParqueadero(inicio,controladorR,controladorC,controladorV,controladorP,controladorT, tipoVentana);
-        tipoVentana=new Tipo(reservarParqueadero, inicio);
+        controladorR = new ControladorRegex();
+        controladorC = new ControladorCliente();
+        controladorP = new ControladorParqueadero();
+        controladorV = new ControladorVehiculo(controladorC);
+        controladorT = new ControladorTicket(controladorV, controladorP);
+        controladorU = new ControladorUsuario();
+
+        iniciarSession = new IniciarSession(controladorU, this);
+        registrarCliente = new RegistrarCliente(controladorR, controladorC, inicio);
+        registrarAdministrador = new RegistrarAdministrador(controladorU, controladorR);
+        reservarParqueadero = new ReservarParqueadero(inicio, controladorR, controladorC, controladorV, controladorP, controladorT, tipoVentana);
+        tipoVentana = new Tipo(reservarParqueadero, inicio);
         reservarParqueadero.setVistaTipo(tipoVentana);
-        registrarVehiculo=new RegistrarVehiculo(controladorV, controladorC, controladorR,inicio);
-        inicio=new Inicio(reservarParqueadero,registrarVehiculo,registrarCliente,tipoVentana);
+        registrarVehiculo = new RegistrarVehiculo(controladorV, controladorC, controladorR, inicio);
+        inicio = new Inicio(reservarParqueadero, registrarVehiculo, registrarCliente, tipoVentana);
         tipoVentana.setVistaInicio(inicio);
         reservarParqueadero.setVistaInicio(inicio);
         registrarVehiculo.setVistaInicio(inicio);
         registrarCliente.setVistaInicio(inicio);
-        
-        ventanaAdministrador=new VentanaAdministrador(controladorT,controladorP,controladorR);
-        
-        
+
+        ventanaAdministrador = new VentanaAdministrador(controladorT, controladorP, controladorR);
+
         desktopPane.add(iniciarSession);
         desktopPane.add(inicio);
         desktopPane.add(registrarAdministrador);
@@ -72,30 +71,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         desktopPane.add(registrarVehiculo);
         desktopPane.add(registrarCliente);
         desktopPane.add(tipoVentana);
-        
+
         inicio.setVisible(true);
         MenuAdministrador.setVisible(false);
         itemCerrarSession.setVisible(false);
-        
+
     }
-    
-        public JMenu getMenuAdministrador(){
+
+    public JMenu getMenuAdministrador() {
         return MenuAdministrador;
     }
-    
-    public JMenuItem getItemCerrarSession(){
+
+    public JMenuItem getItemCerrarSession() {
         return itemCerrarSession;
     }
-    
-    public JMenuItem getItemRegistrar(){
+
+    public JMenuItem getItemRegistrar() {
         return itemRUsuario;
     }
-    
-    public JMenuItem getItemInicioSession(){
+
+    public JMenuItem getItemInicioSession() {
         return itemISession;
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -197,7 +195,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuAdministrador.setVisible(false);
         itemISession.setVisible(true);
         itemRUsuario.setVisible(true);
-        itemCerrarSession.setVisible(false); 
+        itemCerrarSession.setVisible(false);
     }//GEN-LAST:event_itemCerrarSessionActionPerformed
 
     private void itemMenuAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAActionPerformed
